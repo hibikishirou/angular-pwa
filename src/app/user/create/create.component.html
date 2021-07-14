@@ -1,0 +1,21 @@
+<section>
+  <form [formGroup]="form">
+    <div>
+      <label>ID:</label>
+      <input formControlName="id">
+    </div>
+    <div>
+      <label>USERNAME:</label>
+      <input formControlName="username">
+    </div>
+    <div>
+      <label>EMAIL:</label>
+      <input formControlName="email">
+    </div>
+    <div>
+      <button type="submit" (click)="submitUser()">Submit</button>
+    </div>
+  </form>
+</section>
+
+<a [routerLink]="['../']">Cancel</a>

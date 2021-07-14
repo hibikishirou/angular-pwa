@@ -6,6 +6,11 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
+import { ServicesWorkerModule } from './services-worker/services-worker.module';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -14,6 +19,14 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
+    CommonModule,
+    HttpClientModule,
+    ServicesWorkerModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      preventDuplicates: true,
+    }),
     RouterModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
