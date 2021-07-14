@@ -1,6 +1,11 @@
 <div class="offline-mode" *ngIf="offlineMode | async">Is Offline</div>
 
-<a [routerLink]="['./users']">Users</a> |
-<a [routerLink]="['./posts']">Posts</a>
-<br>
+<div *ngIf="!(isInstalled | async)">
+  <button (click)="installApp()">Install App</button>
+</div>
+
+<div>
+  <a [routerLink]="['./users']">Users</a> |
+  <a [routerLink]="['./posts']">Posts</a>
+</div>
 <router-outlet></router-outlet>

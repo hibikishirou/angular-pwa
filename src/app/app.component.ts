@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CheckForUpdateService } from './services-worker/services/check-for-update.service';
+import { CheckInstallService } from './services-worker/services/check-install.service';
 import { CheckOnlineOfflineService } from './services-worker/services/check-online-offline.service';
 import { HandleUnrecoverableStateService } from './services-worker/services/handle-unrecoverable-state.service';
 import { LogUpdateService } from './services-worker/services/log-update.service';
@@ -18,10 +19,20 @@ export class AppComponent {
     private HandleUnrecoverableStateService: HandleUnrecoverableStateService,
     private LogUpdateService: LogUpdateService,
     private PromptUpdateService: PromptUpdateService,
-    private CheckOnlineOfflineService: CheckOnlineOfflineService
-  ) {}
+    private CheckOnlineOfflineService: CheckOnlineOfflineService,
+    private CheckInstallService: CheckInstallService
+  ) { }
 
   get offlineMode() {
     return this.CheckOnlineOfflineService.isOffline;
   }
+
+
+  get isInstalled() {
+    return this.CheckInstallService.isInstalled;
+  }
+
+  installApp() {
+    this.CheckInstallService.installApp();
+   }
 }
