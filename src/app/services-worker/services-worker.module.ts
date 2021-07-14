@@ -5,6 +5,7 @@ import { CheckForUpdateService } from './services/check-for-update.service';
 import { HandleUnrecoverableStateService } from './services/handle-unrecoverable-state.service';
 import { LogUpdateService } from './services/log-update.service';
 import { CheckOnlineOfflineService } from './services/check-online-offline.service';
+import { DeviceService } from './services/device.service';
 
 @NgModule({
   imports: [
@@ -16,7 +17,8 @@ import { CheckOnlineOfflineService } from './services/check-online-offline.servi
     CheckForUpdateService,
     HandleUnrecoverableStateService,
     LogUpdateService,
-    CheckOnlineOfflineService
+    CheckOnlineOfflineService,
+    DeviceService
   ]
 })
 export class ServicesWorkerModule { }
