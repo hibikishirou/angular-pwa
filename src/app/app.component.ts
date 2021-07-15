@@ -14,27 +14,28 @@ import { PromptUpdateService } from './services-worker/services/prompt-update.se
 })
 export class AppComponent {
   title = 'angular-pwa';
-
+  deviceType = '';
   constructor(
-    private CheckForUpdateService: CheckForUpdateService,
-    private HandleUnrecoverableStateService: HandleUnrecoverableStateService,
-    private LogUpdateService: LogUpdateService,
-    private PromptUpdateService: PromptUpdateService,
-    private CheckOnlineOfflineService: CheckOnlineOfflineService,
-    private CheckInstallService: CheckInstallService,
-    private DeviceService: DeviceService
-  ) { }
-
-  get offlineMode() {
-    return this.CheckOnlineOfflineService.isOffline;
+    private _checkForUpdateService: CheckForUpdateService,
+    private _handleUnrecoverableStateService: HandleUnrecoverableStateService,
+    private _logUpdateService: LogUpdateService,
+    private _promptUpdateService: PromptUpdateService,
+    private _checkOnlineOfflineService: CheckOnlineOfflineService,
+    private _checkInstallService: CheckInstallService,
+    private _deviceService: DeviceService
+  ) {
+    this.deviceType = `${this._deviceService.deviceType}-mode`;
   }
 
+  get offlineMode() {
+    return this._checkOnlineOfflineService.isOffline;
+  }
 
   get isInstalled() {
-    return this.CheckInstallService.isInstalled;
+    return this._checkInstallService.isInstalled;
   }
 
   installApp() {
-    this.CheckInstallService.installApp();
-   }
+    this._checkInstallService.installApp();
+  }
 }

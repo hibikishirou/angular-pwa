@@ -1,11 +1,13 @@
-<div class="offline-mode" *ngIf="offlineMode | async">Is Offline</div>
+<div [ngClass]="deviceType">
+  <div class="offline-mode" *ngIf="offlineMode | async">Is Offline</div>
 
-<div *ngIf="!(isInstalled | async)">
-  <button (click)="installApp()">Install App</button>
-</div>
+  <div *ngIf="!(isInstalled | async)">
+    <button (click)="installApp()">Install App</button>
+  </div>
 
-<div>
-  <a [routerLink]="['./users']">Users</a> |
-  <a [routerLink]="['./posts']">Posts</a>
+  <div>
+    <a [routerLink]="['./users']">Users</a> |
+    <a [routerLink]="['./posts']">Posts</a>
+  </div>
+  <router-outlet></router-outlet>
 </div>
-<router-outlet></router-outlet>

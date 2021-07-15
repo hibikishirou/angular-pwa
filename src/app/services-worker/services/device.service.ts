@@ -3,7 +3,7 @@ import { DeviceDetectorService } from 'ngx-device-detector';
 
 @Injectable()
 export class DeviceService {
-  deviceType = '';
+  deviceType: 'tablet' | 'mobile' | 'desktop' | 'unknown' | string = '';
   os = '';
   constructor(
     private deviceService: DeviceDetectorService
