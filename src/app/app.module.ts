@@ -11,7 +11,7 @@ import { ServicesWorkerModule } from './services-worker/services-worker.module';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
-
+import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [
     AppComponent
@@ -20,6 +20,7 @@ import { CommonModule } from '@angular/common';
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     CommonModule,
+    FlexLayoutModule,
     HttpClientModule,
     ServicesWorkerModule,
     BrowserAnimationsModule,
